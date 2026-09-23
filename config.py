@@ -6,9 +6,19 @@ import torch
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
 # Пути к файлам
-RU2EN_MODEL_PATH = "data/ru2en_model.pth"
-EN2RU_MODEL_PATH = "data/en2ru_model.pth"
-VOCABS_PATH = "data/vocabs.pkl"
+def get_model_paths():
+    while True:
+        a = input("Введите 'easy' или 'hard' в зависимости от уровня сложности от модели, которую хотите использовать: ")
+        if a == "easy":
+            print("Загрузка easy model...")
+            return "data_easy/ru2en_model.pth", "data_easy/en2ru_model.pth", "data_easy/vocabs.pkl"
+        elif a == "hard":
+            print("Загрузка hard model...")
+            return "data_hard/ru2en_model.pth", "data_hard/en2ru_model.pth", "data_hard/vocabs.pkl"
+        elif a == "myself":
+            return "data/ru2en_model.pth", "data/en2ru_model.pth", "data/vocabs.pkl"
+        else:
+            print("Неверный ввод. Пожалуйста, введите 'easy' или 'hard':")
 
 #  Гиперпараметры модели (Совпадают с теми, что использовались при обучении)
 EMBEDDING_DIM = 128

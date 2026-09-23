@@ -3,3 +3,5 @@ __pycache__/
 *.pth
 *.pkl
 *.ipynb
+data_easy/
+data_hard/

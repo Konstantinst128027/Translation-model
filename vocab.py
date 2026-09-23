@@ -5,7 +5,6 @@ from config import (
     EOS,
     PAD,
     UNK,
-    VOCABS_PATH,
 )
 
 
@@ -52,7 +51,7 @@ class Vocab:
 
 
 # Функция загрузки словаря из файла
-def load_vocab(path = VOCABS_PATH):
+def load_vocab(path):
     with open(path, "rb") as f: # rb - открывает файл в бинарном режиме
         vocabs = pickle.load(f)
         return vocabs["ru"], vocabs["en"]
